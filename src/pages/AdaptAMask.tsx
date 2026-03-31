@@ -149,16 +149,16 @@ export function AdaptAMask() {
               medical responders operating in cold, prehospital environments?
             </p>
             <a
-              href="#"
+              href="/adapt-a-mask-project.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 mt-6 font-sans font-medium hover:text-navy transition-colors"
               style={{
                 color: projectColor
               }}>
-              
+
               <ExternalLinkIcon className="w-4 h-4" />
-              View Provisional Patent
+              View Project
             </a>
           </motion.div>
 

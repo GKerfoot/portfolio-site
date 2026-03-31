@@ -163,26 +163,26 @@ export function Sentry() {
             </p>
             <div className="flex flex-wrap items-center gap-6 mt-6">
               <a
-                href="#"
+                href="https://www.figma.com/design/8U9wdpvDynh3fTmDDfx4X9/Final-Project--10A--Emelia--Gretchen--Winnie--Dayton?m=auto&t=ptP9GmNkzlhvqRY8-6"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 font-sans font-medium hover:text-navy transition-colors"
                 style={{
                   color: projectColor
                 }}>
-                
+
                 <ExternalLinkIcon className="w-4 h-4" />
                 View Figma File
               </a>
               <a
-                href="#"
+                href="/sentry-case-study.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 font-sans font-medium hover:text-navy transition-colors"
                 style={{
                   color: projectColor
                 }}>
-                
+
                 <ExternalLinkIcon className="w-4 h-4" />
                 View Case Study PDF
               </a>

@@ -124,14 +124,14 @@ export function DartmouthHousing() {
               residential house?
             </p>
             <a
-              href="#"
+              href="/dartmouth-housing-report.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 mt-6 font-sans font-medium hover:text-navy transition-colors"
               style={{
                 color: projectColor
               }}>
-              
+
               <ExternalLinkIcon className="w-4 h-4" />
               View Final Report
             </a>
