@@ -2,15 +2,15 @@ import React from 'react';
 import { GithubIcon, LinkedinIcon, MailIcon } from 'lucide-react';
 const socialLinks = [{
   icon: MailIcon,
-  href: 'mailto:alex@example.com',
+  href: 'mailto:gretchen.a.kerfoot.27@dartmouth.edu',
   label: 'Email'
 }, {
   icon: GithubIcon,
-  href: 'https://github.com',
+  href: 'https://github.com/GKerfoot',
   label: 'GitHub'
 }, {
   icon: LinkedinIcon,
-  href: 'https://linkedin.com',
+  href: 'https://www.linkedin.com/in/gretchen-kerfoot-a52653272/',
   label: 'LinkedIn'
 }];
 export function Footer() {

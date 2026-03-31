@@ -32,7 +32,7 @@ export function About() {
               love skiing, hiking, SCUBA diving, and all things outdoors.
             </p>
           </div>
-          <a href="#" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 mt-6 font-sans text-sm text-navy/50 hover:text-accent transition-colors duration-300">
+          <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 mt-6 font-sans text-sm text-navy/50 hover:text-accent transition-colors duration-300">
             <FileTextIcon className="w-4 h-4" />
             Resume
           </a>
