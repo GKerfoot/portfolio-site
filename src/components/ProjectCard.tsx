@@ -10,7 +10,7 @@ interface ProjectCardProps {
   color: string;
   image?: string;
   imagePosition?: string;
-  large?: boolean;
+  tallImage?: boolean;
   index: number;
 }
 export function ProjectCard({
@@ -21,11 +21,11 @@ export function ProjectCard({
   color,
   image,
   imagePosition,
-  large = false,
+  tallImage = false,
   index
 }: ProjectCardProps) {
   const [isHovered, setIsHovered] = useState(false);
-  return <Link to={`/project/${slug}`} className={large ? 'row-span-2 block' : 'block'}>
+  return <Link to={`/project/${slug}`} className="block">
       <motion.article initial={{
       opacity: 0,
       y: 40
@@ -41,10 +41,10 @@ export function ProjectCard({
       ease: 'easeOut'
     }} whileHover={{
       y: -8
-    }} onHoverStart={() => setIsHovered(true)} onHoverEnd={() => setIsHovered(false)} className="relative overflow-hidden cursor-pointer group rounded-2xl h-full">
-        <div className="relative h-full bg-navy/[0.03] border border-navy/10 hover:border-accent/40 transition-colors duration-300 rounded-2xl overflow-hidden">
+    }} onHoverStart={() => setIsHovered(true)} onHoverEnd={() => setIsHovered(false)} className="relative overflow-hidden cursor-pointer group rounded-2xl">
+        <div className="relative bg-navy/[0.03] border border-navy/10 hover:border-accent/40 transition-colors duration-300 rounded-2xl overflow-hidden">
           {/* Image or colored placeholder area */}
-          <div className={`relative overflow-hidden ${large ? 'h-80 md:h-96' : 'h-64'}`} style={{
+          <div className={`relative overflow-hidden ${tallImage ? 'h-80 md:h-96' : 'h-64'}`} style={{
           backgroundColor: color
         }}>
             {image ? <img src={image} alt={`${title} preview`} className={`absolute inset-0 w-full h-full object-cover ${imagePosition || 'object-top'}`} /> : <div className="absolute inset-0 opacity-[0.08]">
