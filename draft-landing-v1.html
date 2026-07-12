@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Gretchen Kerfoot — Design Portfolio (Draft v1)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        fontFamily: {
+          heading: ['Sora', 'sans-serif'],
+          sans: ['"DM Sans"', 'sans-serif'],
+        },
+        colors: {
+          navy: '#0f1b3d',
+          accent: '#3b5bdb',
+          blue: '#4c7ce5',
+          peach: '#e8a87c',
+          mint: '#7bc5ae',
+          lilac: '#b8a9d4',
+        },
+      },
+    },
+  };
+</script>
+<style>
+  :root { --navy: #0f1b3d; --accent: #3b5bdb; }
+  html { scroll-behavior: smooth; }
+  body { background: #fdfcfa; color: var(--navy); font-family: 'DM Sans', sans-serif; }
+  h1, h2, h3, .font-heading { font-family: 'Sora', sans-serif; }
+
+  /* Grain texture overlay */
+  .grain::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 60;
+    opacity: 0.035;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  /* Outline text effect */
+  .text-outline {
+    color: transparent;
+    -webkit-text-stroke: 2px var(--navy);
+    text-stroke: 2px var(--navy);
+  }
+  @media (max-width: 767px) {
+    .text-outline { -webkit-text-stroke: 1.3px var(--navy); }
+  }
+
+  /* Marquee */
+  .marquee-track {
+    display: flex;
+    width: max-content;
+    animation: marquee 26s linear infinite;
+  }
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  /* Floating blobs */
+  @keyframes float-slow {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(20px, -30px) scale(1.05); }
+  }
+  @keyframes float-slow-rev {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(-25px, 25px) scale(1.08); }
+  }
+  .blob-a { animation: float-slow 12s ease-in-out infinite; }
+  .blob-b { animation: float-slow-rev 14s ease-in-out infinite; }
+
+  /* Scroll reveal */
+  .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  .reveal.in { opacity: 1; transform: translateY(0); }
+
+  /* Project card tilt */
+  .tilt-card { transition: transform 0.45s cubic-bezier(.2,.8,.2,1), box-shadow 0.45s ease, border-color 0.3s ease; }
+  .tilt-card:hover { transform: translateY(-10px) rotate(-0.6deg); }
+
+  /* Sticker skill chips */
+  .chip { transition: transform 0.3s cubic-bezier(.2,.8,.2,1), box-shadow 0.3s ease; }
+  .chip:hover { transform: rotate(0deg) translateY(-4px) scale(1.04); box-shadow: 0 10px 24px -8px rgba(15,27,61,0.25); }
+
+  .scribble-underline {
+    position: relative;
+  }
+  .scribble-underline svg { position: absolute; left: 0; bottom: -10px; width: 100%; height: 14px; }
+</style>
+</head>
+<body class="grain overflow-x-hidden">
+
+<!-- NAV -->
+<header class="fixed top-0 left-0 right-0 z-50 px-5 md:px-10 pt-5">
+  <nav class="max-w-7xl mx-auto flex items-center justify-between bg-white/70 backdrop-blur-lg border border-navy/10 rounded-2xl px-5 py-3 shadow-[0_8px_30px_-12px_rgba(15,27,61,0.15)]">
+    <a href="#top" class="w-10 h-10 rounded-full bg-navy text-white font-heading font-bold text-sm flex items-center justify-center rotate-[-6deg]">GK</a>
+    <div class="hidden md:flex items-center gap-8 font-sans text-sm font-medium text-navy/60">
+      <a href="#work" class="hover:text-accent transition-colors">Work</a>
+      <a href="#about" class="hover:text-accent transition-colors">About</a>
+      <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" class="hover:text-accent transition-colors">Resume</a>
+    </div>
+    <div class="flex items-center gap-1.5">
+      <span class="w-2.5 h-2.5 rounded-full bg-blue"></span>
+      <span class="w-2.5 h-2.5 rounded-full bg-peach"></span>
+      <span class="w-2.5 h-2.5 rounded-full bg-mint"></span>
+      <span class="w-2.5 h-2.5 rounded-full bg-lilac"></span>
+    </div>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section id="top" class="relative min-h-screen flex flex-col justify-center px-6 md:px-12 lg:px-24 max-w-7xl mx-auto pt-28 overflow-hidden">
+
+  <!-- background blobs -->
+  <div class="pointer-events-none absolute inset-0 -z-10">
+    <div class="blob-a absolute -top-20 -left-24 w-[26rem] h-[26rem] rounded-full bg-blue/20 blur-3xl"></div>
+    <div class="blob-b absolute top-1/3 -right-32 w-[30rem] h-[30rem] rounded-full bg-lilac/25 blur-3xl"></div>
+    <div class="blob-a absolute bottom-0 left-1/4 w-72 h-72 rounded-full bg-mint/20 blur-3xl"></div>
+  </div>
+
+  <div class="flex flex-col md:flex-row items-center gap-10 md:gap-16">
+    <div class="flex-1 reveal in">
+      <h1 class="font-heading font-extrabold text-[clamp(3.2rem,11vw,8.5rem)] leading-[0.87] tracking-tight text-navy mb-6">
+        Gretchen<br />
+        <span class="text-outline">Kerfoot</span>
+      </h1>
+
+      <div class="inline-block relative mb-3">
+        <p class="scribble-underline font-sans text-lg md:text-2xl text-navy/70 max-w-2xl font-medium">
+          This is my design portfolio. Enjoy!
+          <svg viewBox="0 0 300 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M2 8C40 2 80 2 100 8C130 15 170 1 200 7C230 13 260 3 298 8" stroke="#3b5bdb" stroke-width="3" stroke-linecap="round"/>
+          </svg>
+        </p>
+      </div>
+    </div>
+
+    <div class="relative shrink-0">
+      <div class="absolute -inset-4 md:-inset-6 rounded-[2.2rem] border-2 border-dashed border-accent/40 rotate-6"></div>
+      <div class="absolute -bottom-4 -left-4 w-10 h-10 rounded-full bg-peach rotate-12"></div>
+      <div class="absolute -top-5 -right-5 w-8 h-8 rounded-full bg-mint"></div>
+      <img
+        src="public/ABDB4D95-2C52-4C84-BC78-BB45FBDD88DA.png"
+        alt="Gretchen Kerfoot"
+        class="relative w-48 h-48 md:w-64 md:h-64 lg:w-72 lg:h-72 object-contain rounded-[2rem] bg-white shadow-[0_20px_50px_-15px_rgba(15,27,61,0.35)] -rotate-3"
+      />
+    </div>
+  </div>
+
+  <a href="#work" class="absolute bottom-8 right-6 md:right-12 lg:right-24 flex flex-col items-center gap-2 text-navy/40 hover:text-accent transition-colors">
+    <span class="text-xs font-sans uppercase tracking-[0.2em] [writing-mode:vertical-rl]">Scroll</span>
+    <span class="w-8 h-8 rounded-full border border-navy/20 flex items-center justify-center animate-bounce">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+    </span>
+  </a>
+</section>
+
+<!-- MARQUEE -->
+<div class="bg-navy py-4 overflow-hidden -rotate-1 my-4">
+  <div class="marquee-track">
+    <span class="marquee-content flex items-center shrink-0">
+      <!-- repeated twice for seamless loop -->
+      <span class="flex items-center gap-6 font-heading font-semibold text-white/90 text-lg md:text-xl pr-6">
+        <span>React &amp; TypeScript</span><span class="text-blue">✦</span>
+        <span>Figma</span><span class="text-peach">✦</span>
+        <span>Node.js &amp; Python</span><span class="text-mint">✦</span>
+        <span>UI/UX Research</span><span class="text-lilac">✦</span>
+        <span>Microsoft Office</span><span class="text-blue">✦</span>
+        <span>Java &amp; C++</span><span class="text-peach">✦</span>
+      </span>
+      <span class="flex items-center gap-6 font-heading font-semibold text-white/90 text-lg md:text-xl pr-6">
+        <span>React &amp; TypeScript</span><span class="text-blue">✦</span>
+        <span>Figma</span><span class="text-peach">✦</span>
+        <span>Node.js &amp; Python</span><span class="text-mint">✦</span>
+        <span>UI/UX Research</span><span class="text-lilac">✦</span>
+        <span>Microsoft Office</span><span class="text-blue">✦</span>
+        <span>Java &amp; C++</span><span class="text-peach">✦</span>
+      </span>
+    </span>
+  </div>
+</div>
+
+<!-- SELECTED WORK -->
+<section id="work" class="px-6 md:px-12 lg:px-24 py-20 md:py-28 max-w-7xl mx-auto">
+  <div class="mb-14 md:mb-20 reveal">
+    <h2 class="font-heading font-extrabold text-[clamp(2.4rem,6vw,4rem)] text-navy mb-4 tracking-tight">
+      Selected Work
+    </h2>
+    <p class="font-sans text-navy/50 max-w-2xl text-lg">
+      A collection of recent projects spanning product design, development,
+      and more!
+    </p>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-7">
+
+    <!-- Litboxd - large, tall -->
+    <a href="#" class="tilt-card md:col-span-7 md:row-span-2 group block rounded-3xl overflow-hidden border-2 border-navy/10 hover:border-blue/50 bg-white shadow-[0_4px_20px_-8px_rgba(15,27,61,0.12)] reveal">
+      <div class="relative h-72 md:h-[26rem] overflow-hidden" style="background-color:#4c7ce5">
+        <img src="public/Screenshot_2026-03-29_at_10.54.17_PM.png" alt="Litboxd preview" class="absolute inset-0 w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500" />
+        <span class="absolute top-4 left-4 font-heading font-extrabold text-6xl text-white/25">01</span>
+        <div class="absolute inset-0 bg-navy/0 group-hover:bg-navy/50 transition-colors duration-300 flex items-center justify-center">
+          <div class="flex items-center gap-2 text-white font-sans font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <span>View Project</span>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </div>
+        </div>
+      </div>
+      <div class="p-7 md:p-9">
+        <div class="flex items-center gap-3 mb-3">
+          <span class="text-xs font-sans font-bold uppercase tracking-wider text-white bg-blue px-3 py-1 rounded-full">Full-Stack Dev</span>
+        </div>
+        <h3 class="font-heading font-bold text-2xl md:text-3xl mb-3 text-navy tracking-tight">Litboxd</h3>
+        <p class="font-sans text-navy/50 leading-relaxed">A better social media platform for readers. Think Goodreads meets Letterboxd.</p>
+      </div>
+    </a>
+
+    <!-- Dartmouth Housing -->
+    <a href="#" class="tilt-card md:col-span-5 group block rounded-3xl overflow-hidden border-2 border-navy/10 hover:border-peach/60 bg-white shadow-[0_4px_20px_-8px_rgba(15,27,61,0.12)] reveal">
+      <div class="relative h-48 overflow-hidden" style="background-color:#e8a87c">
+        <img src="public/housing_project.jpg" alt="Dartmouth Housing Project preview" class="absolute inset-0 w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500" />
+        <span class="absolute top-3 left-4 font-heading font-extrabold text-4xl text-white/30">02</span>
+        <div class="absolute inset-0 bg-navy/0 group-hover:bg-navy/50 transition-colors duration-300 flex items-center justify-center">
+          <div class="flex items-center gap-2 text-white font-sans font-semibold text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <span>View Project</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </div>
+        </div>
+      </div>
+      <div class="p-6">
+        <span class="text-xs font-sans font-bold uppercase tracking-wider text-white bg-peach px-3 py-1 rounded-full">Design Research</span>
+        <h3 class="font-heading font-bold text-xl md:text-2xl my-3 text-navy tracking-tight">Dartmouth Housing Project</h3>
+        <p class="font-sans text-sm text-navy/50 leading-relaxed">How might we make Dartmouth students identify further with their residential house?</p>
+      </div>
+    </a>
+
+    <!-- Adapt-a-Mask -->
+    <a href="#" class="tilt-card md:col-span-5 group block rounded-3xl overflow-hidden border-2 border-navy/10 hover:border-mint/60 bg-white shadow-[0_4px_20px_-8px_rgba(15,27,61,0.12)] reveal">
+      <div class="relative h-48 overflow-hidden" style="background-color:#7bc5ae">
+        <img src="public/image-1.jpg" alt="Adapt-a-Mask preview" class="absolute inset-0 w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500" />
+        <span class="absolute top-3 left-4 font-heading font-extrabold text-4xl text-white/30">03</span>
+        <div class="absolute inset-0 bg-navy/0 group-hover:bg-navy/50 transition-colors duration-300 flex items-center justify-center">
+          <div class="flex items-center gap-2 text-white font-sans font-semibold text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <span>View Project</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </div>
+        </div>
+      </div>
+      <div class="p-6">
+        <span class="text-xs font-sans font-bold uppercase tracking-wider text-white bg-mint px-3 py-1 rounded-full">Engineering Design</span>
+        <h3 class="font-heading font-bold text-xl md:text-2xl my-3 text-navy tracking-tight">Adapt-a-Mask</h3>
+        <p class="font-sans text-sm text-navy/50 leading-relaxed">How might we improve airway seal consistency for novice emergency medical responders operating in cold, prehospital environments?</p>
+      </div>
+    </a>
+
+    <!-- Sentry - wide banner -->
+    <a href="#" class="tilt-card md:col-span-12 group block rounded-3xl overflow-hidden border-2 border-navy/10 hover:border-lilac/60 bg-white shadow-[0_4px_20px_-8px_rgba(15,27,61,0.12)] reveal">
+      <div class="flex flex-col md:flex-row">
+        <div class="relative h-56 md:h-72 md:w-2/5 overflow-hidden" style="background-color:#b8a9d4">
+          <img src="public/Screenshot_2026-03-29_at_11.16.05_PM.png" alt="Sentry preview" class="absolute inset-0 w-full h-full object-cover object-left-top group-hover:scale-105 transition-transform duration-500" />
+          <span class="absolute top-3 left-4 font-heading font-extrabold text-4xl text-white/30">04</span>
+        </div>
+        <div class="p-7 md:p-9 flex flex-col justify-center md:w-3/5">
+          <span class="text-xs font-sans font-bold uppercase tracking-wider text-white bg-lilac px-3 py-1 rounded-full w-fit">UI/UX Design</span>
+          <h3 class="font-heading font-bold text-2xl md:text-3xl my-3 text-navy tracking-tight">Sentry</h3>
+          <p class="font-sans text-navy/50 leading-relaxed max-w-xl">A community network designed to keep immigrants informed and prepared.</p>
+          <span class="mt-4 inline-flex items-center gap-2 text-navy font-sans font-semibold text-sm w-fit group-hover:gap-3 transition-all">
+            View Project
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </span>
+        </div>
+      </div>
+    </a>
+
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="px-6 md:px-12 lg:px-24 py-20 md:py-28 max-w-7xl mx-auto">
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-14 md:gap-20">
+    <div class="reveal">
+      <h2 class="font-heading font-extrabold text-[clamp(2.2rem,5.5vw,3.5rem)] text-navy mb-6 tracking-tight">About Me</h2>
+      <div class="space-y-4 font-sans text-navy/60 leading-relaxed text-lg">
+        <p>
+          Hello! My name is Gretchen, and I am a current junior at Dartmouth
+          College. I study computer science and human-centered design,
+          focusing on the intersection of design thinking with computer
+          programming and product development.
+        </p>
+        <p>
+          Outside of my studies, I am a member of the Dartmouth Ski Patrol,
+          Sigma Delta sorority, and the Casual Thursday improv troupe. I
+          love skiing, hiking, SCUBA diving, and all things outdoors.
+        </p>
+      </div>
+      <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 mt-8 font-sans font-semibold text-sm text-white bg-navy hover:bg-accent transition-colors duration-300 rounded-full px-5 py-3">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>
+        Resume
+      </a>
+    </div>
+
+    <div class="reveal">
+      <h3 class="font-heading font-bold text-2xl text-navy mb-8 tracking-tight">Skills &amp; Tools</h3>
+      <div class="flex flex-wrap gap-4">
+        <div class="chip rotate-[-3deg] font-sans font-semibold text-sm text-navy bg-blue/10 border-2 border-blue/30 rounded-2xl px-5 py-3">React &amp; TypeScript</div>
+        <div class="chip rotate-[2deg] font-sans font-semibold text-sm text-navy bg-lilac/10 border-2 border-lilac/30 rounded-2xl px-5 py-3">Figma</div>
+        <div class="chip rotate-[-2deg] font-sans font-semibold text-sm text-navy bg-mint/10 border-2 border-mint/30 rounded-2xl px-5 py-3">Node.js &amp; Python</div>
+        <div class="chip rotate-[3deg] font-sans font-semibold text-sm text-navy bg-peach/10 border-2 border-peach/30 rounded-2xl px-5 py-3">UI/UX Research</div>
+        <div class="chip rotate-[-1deg] font-sans font-semibold text-sm text-navy bg-accent/10 border-2 border-accent/30 rounded-2xl px-5 py-3">Microsoft Office</div>
+        <div class="chip rotate-[2deg] font-sans font-semibold text-sm text-navy bg-blue/10 border-2 border-blue/30 rounded-2xl px-5 py-3">Java &amp; C++</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="relative overflow-hidden bg-navy mt-8 rounded-t-[2.5rem]">
+  <span class="absolute -bottom-10 left-1/2 -translate-x-1/2 font-heading font-extrabold text-white/[0.04] text-[16vw] whitespace-nowrap select-none leading-none">Gretchen Kerfoot</span>
+  <div class="relative px-6 md:px-12 lg:px-24 py-14 max-w-7xl mx-auto">
+    <div class="flex flex-col md:flex-row justify-between items-center gap-8">
+      <div class="flex items-center gap-4">
+        <a href="mailto:gretchen.a.kerfoot.27@dartmouth.edu" aria-label="Email" class="w-12 h-12 rounded-full bg-white/10 hover:bg-accent flex items-center justify-center text-white transition-colors duration-300">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>
+        </a>
+        <a href="https://github.com/GKerfoot" aria-label="GitHub" class="w-12 h-12 rounded-full bg-white/10 hover:bg-blue flex items-center justify-center text-white transition-colors duration-300">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+        </a>
+        <a href="https://www.linkedin.com/in/gretchen-kerfoot-a52653272/" aria-label="LinkedIn" class="w-12 h-12 rounded-full bg-white/10 hover:bg-lilac flex items-center justify-center text-white transition-colors duration-300">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        </a>
+      </div>
+      <p class="font-sans text-sm text-white/40">© 2026 Gretchen Kerfoot. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((e) => { if (e.isIntersecting) e.target.classList.add('in'); });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
+</script>
+
+</body>
+</html>
