@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { FileTextIcon } from 'lucide-react';
-const skills = ['React & TypeScript', 'Figma', 'Node.js & Python', 'UI/UX Research', 'Microsoft Office', 'Java & C++'];
+const skills = ['React & TypeScript', 'Figma', 'Node.js & Python', 'Claude Code', 'PostHog', 'UI/UX Research', 'Microsoft Office', 'Java & C++'];
 export function About() {
   return <section className="px-6 md:px-12 lg:px-24 py-24 max-w-7xl mx-auto">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16">
@@ -21,7 +21,7 @@ export function About() {
           </h2>
           <div className="space-y-4 font-sans text-navy/60 leading-relaxed">
             <p>
-              Hello! My name is Gretchen, and I am a current junior at Dartmouth
+              Hello! My name is Gretchen, and I am a current senior at Dartmouth
               College. I study computer science and human-centered design,
               focusing on the intersection of design thinking with computer
               programming and product development.
