@@ -1,72 +1,62 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowDownIcon } from 'lucide-react';
+
 export function Hero() {
   return (
-    <section className="min-h-screen flex flex-col justify-center px-6 md:px-12 lg:px-24 max-w-7xl mx-auto">
-      <motion.div
-        initial={{
-          opacity: 0,
-          y: 20
-        }}
-        animate={{
-          opacity: 1,
-          y: 0
-        }}
-        transition={{
-          duration: 0.8,
-          ease: 'easeOut'
-        }}
-        className="flex flex-col md:flex-row items-center gap-8 md:gap-16">
-        
-        <div className="flex-1">
-          <h1 className="font-heading font-semibold text-6xl md:text-7xl lg:text-8xl mb-4 text-navy tracking-tight">
+    <section className="min-h-screen bg-white flex flex-col items-center justify-center px-5 sm:px-8 py-16 md:py-20">
+      <motion.h1
+        initial={{ opacity: 0, y: 16 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.7, ease: 'easeOut' }}
+        className="font-hero font-black text-black text-center leading-[0.86] tracking-[-0.05em] text-[clamp(3.5rem,10.5vw,11.25rem)]">
+        Gretchen Kerfoot
+      </motion.h1>
+
+      <motion.article
+        initial={{ opacity: 0, y: 18 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.7, delay: 0.12, ease: 'easeOut' }}
+        className="mt-10 md:mt-14 w-full max-w-[880px] rounded-[28px] overflow-hidden shadow-[0_24px_55px_-18px_rgba(30,24,18,0.22)]"
+        style={{ backgroundImage: 'url(/topo.svg)', backgroundSize: 'cover', backgroundPosition: 'center' }}>
+        <div className="px-6 py-7 sm:px-8 sm:py-8 md:px-10 md:pt-9 md:pb-8">
+          <h2 className="font-hero font-bold text-[1.35rem] md:text-[1.6rem] tracking-[-0.02em] text-black">
             Gretchen Kerfoot
-          </h1>
-          <p className="font-sans text-lg md:text-xl text-navy/50 max-w-2xl">
-            This is my design portfolio. Enjoy!
-          </p>
-        </div>
-        <motion.img
-          src="/ABDB4D95-2C52-4C84-BC78-BB45FBDD88DA.png"
-          alt="Gretchen Kerfoot"
-          className="w-48 h-48 md:w-64 md:h-64 lg:w-80 lg:h-80 object-contain"
-          initial={{
-            opacity: 0,
-            scale: 0.9
-          }}
-          animate={{
-            opacity: 1,
-            scale: 1
-          }}
-          transition={{
-            duration: 0.8,
-            delay: 0.3,
-            ease: 'easeOut'
-          }} />
-        
-      </motion.div>
+          </h2>
 
-      <motion.div
-        initial={{
-          opacity: 0
-        }}
-        animate={{
-          opacity: 1
-        }}
-        transition={{
-          delay: 1,
-          duration: 0.6
-        }}
-        className="absolute bottom-12 left-1/2 -translate-x-1/2">
-        
-        <div className="flex flex-col items-center gap-2 text-navy/30">
-          <span className="text-xs font-sans uppercase tracking-wider">
-            Scroll
-          </span>
-          <ArrowDownIcon className="w-4 h-4 animate-bounce" />
-        </div>
-      </motion.div>
-    </section>);
+          <div className="mt-4 md:mt-5 flex flex-col sm:flex-row sm:items-stretch gap-5 sm:gap-7">
+            <div className="shrink-0 sm:w-[42%] md:w-[240px]">
+              <img
+                src="/hero-portrait.png"
+                alt="Portrait of Gretchen Kerfoot"
+                className="w-full max-w-[240px] h-auto" />
+              <img
+                src="/hero-signature.png"
+                alt=""
+                className="mt-5 w-[9.5rem] md:w-[11rem] h-auto" />
+            </div>
 
+            <div className="flex-1 flex flex-col font-hero text-black text-[0.98rem] md:text-[1.05rem] leading-snug">
+              <div>
+                <p className="font-bold">Student at Dartmouth College</p>
+                <p>Computer Science and Human-Centered Design</p>
+              </div>
+              <div className="mt-3.5">
+                <p className="font-bold">Incoming Business Analyst</p>
+                <p>@ McKinsey Denver</p>
+              </div>
+              <div className="mt-3.5">
+                <p className="font-bold">Interests</p>
+                <p>Design Thinking</p>
+                <p>Creative Problem-Solving</p>
+                <p>Skiing & The Outdoors</p>
+              </div>
+              <p className="font-bold text-right mt-6 sm:mt-auto sm:pt-6">
+                Class of 2027
+              </p>
+            </div>
+          </div>
+        </div>
+      </motion.article>
+    </section>
+  );
 }
