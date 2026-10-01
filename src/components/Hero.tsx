@@ -1,49 +1,62 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowDownIcon } from 'lucide-react';
 
 export function Hero() {
   return (
-    <section className="relative min-h-screen flex flex-col px-6 md:px-12 lg:px-24">
-      <div className="flex-1 flex items-center w-full max-w-7xl mx-auto py-20 md:py-24">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: 'easeOut' }}
-          className="w-full flex flex-col md:flex-row md:items-center md:justify-between gap-12 lg:gap-16">
-          <div className="min-w-0">
-            <h1 className="font-heading font-bold text-[3rem]/[0.9] sm:text-6xl/[0.9] md:text-7xl/[0.9] lg:text-8xl/[0.9] xl:text-[6.25rem]/[0.9] tracking-[-0.035em] text-navy">
-              Gretchen
-              <br />
-              Kerfoot
-            </h1>
-            <p className="mt-5 md:mt-6 font-sans text-base md:text-lg text-navy/45 max-w-md">
-              This is my design portfolio. Enjoy!
-            </p>
+    <section className="min-h-screen bg-white flex flex-col items-center justify-center px-5 sm:px-8 py-16 md:py-20">
+      <motion.h1
+        initial={{ opacity: 0, y: 16 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.7, ease: 'easeOut' }}
+        className="font-hero font-black text-black text-center leading-[0.86] tracking-[-0.05em] text-[clamp(3.5rem,10.5vw,11.25rem)]">
+        Gretchen Kerfoot
+      </motion.h1>
+
+      <motion.article
+        initial={{ opacity: 0, y: 18 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.7, delay: 0.12, ease: 'easeOut' }}
+        className="mt-10 md:mt-14 w-full max-w-[880px] rounded-[28px] overflow-hidden shadow-[0_24px_55px_-18px_rgba(30,24,18,0.22)]"
+        style={{ backgroundImage: 'url(/topo.svg)', backgroundSize: 'cover', backgroundPosition: 'center' }}>
+        <div className="px-6 py-7 sm:px-8 sm:py-8 md:px-10 md:pt-9 md:pb-8">
+          <h2 className="font-hero font-bold text-[1.35rem] md:text-[1.6rem] tracking-[-0.02em] text-black">
+            Gretchen Kerfoot
+          </h2>
+
+          <div className="mt-4 md:mt-5 flex flex-col sm:flex-row sm:items-stretch gap-5 sm:gap-7">
+            <div className="shrink-0 sm:w-[42%] md:w-[240px]">
+              <img
+                src="/hero-portrait.png"
+                alt="Portrait of Gretchen Kerfoot"
+                className="w-full max-w-[240px] h-auto" />
+              <img
+                src="/hero-signature.png"
+                alt=""
+                className="mt-5 w-[9.5rem] md:w-[11rem] h-auto" />
+            </div>
+
+            <div className="flex-1 flex flex-col font-hero text-black text-[0.98rem] md:text-[1.05rem] leading-snug">
+              <div>
+                <p className="font-bold">Student at Dartmouth College</p>
+                <p>Computer Science and Human-Centered Design</p>
+              </div>
+              <div className="mt-3.5">
+                <p className="font-bold">Incoming Business Analyst</p>
+                <p>@ McKinsey Denver</p>
+              </div>
+              <div className="mt-3.5">
+                <p className="font-bold">Interests</p>
+                <p>Design Thinking</p>
+                <p>Creative Problem-Solving</p>
+                <p>Skiing & The Outdoors</p>
+              </div>
+              <p className="font-bold text-right mt-6 sm:mt-auto sm:pt-6">
+                Class of 2027
+              </p>
+            </div>
           </div>
-
-          <motion.img
-            src="/ABDB4D95-2C52-4C84-BC78-BB45FBDD88DA.png"
-            alt="Gretchen Kerfoot"
-            className="w-64 sm:w-72 md:w-[22rem] lg:w-[24rem] xl:w-[26rem] h-auto object-contain shrink-0 self-center md:self-auto select-none"
-            initial={{ opacity: 0, scale: 0.96 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.2, ease: 'easeOut' }} />
-        </motion.div>
-      </div>
-
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1, duration: 0.6 }}
-        className="pb-10 md:pb-12 flex justify-center">
-        <div className="flex flex-col items-center gap-2 text-navy/25">
-          <span className="text-[11px] font-sans font-medium uppercase tracking-[0.28em]">
-            Scroll
-          </span>
-          <ArrowDownIcon className="w-4 h-4 animate-bounce" strokeWidth={1.5} />
         </div>
-      </motion.div>
+      </motion.article>
     </section>
   );
 }

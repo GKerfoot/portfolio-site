@@ -8,6 +8,7 @@ export default {
     extend: {
       fontFamily: {
         heading: ['Sora', 'sans-serif'],
+        hero: ['Inter', 'sans-serif'],
         sans: ['"DM Sans"', 'sans-serif'],
       },
       colors: {
