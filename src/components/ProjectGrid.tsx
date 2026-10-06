@@ -1,7 +1,13 @@
 import React from 'react';
 import { ProjectCard } from './ProjectCard';
 import { projects } from '../data/projects';
+
+const tallImageSlugs = new Set(['litboxd', 'sentry']);
+
 export function ProjectGrid() {
+  const leftColumn = [projects[0], projects[2]];
+  const rightColumn = [projects[1], projects[3]];
+
   return <section className="px-6 md:px-12 lg:px-24 pb-24 pt-0 max-w-7xl mx-auto">
       <div className="mb-16">
         <h2 className="font-heading font-semibold text-4xl md:text-5xl text-navy mb-4 tracking-tight">
@@ -14,15 +20,16 @@ export function ProjectGrid() {
       </div>
 
       <div className="flex flex-col gap-6 md:hidden">
-        {projects.map((project, index) => <ProjectCard key={project.title} {...project} large={index === 0 || index === 3} index={index} />)}
+        {projects.map((project, index) => <ProjectCard key={project.title} {...project} tallImage={tallImageSlugs.has(project.slug)} index={index} />)}
       </div>
-      <div className="hidden md:grid md:grid-cols-2 gap-8 items-start">
-        {[0, 1].map((column) => <div key={column} className="flex flex-col gap-8">
-            {projects.filter((_, index) => index % 2 === column).map((project) => {
-              const index = projects.indexOf(project);
-              return <ProjectCard key={project.title} {...project} large={index === 0 || index === 3} index={index} />;
-            })}
-          </div>)}
+
+      <div className="hidden md:grid md:grid-cols-2 md:gap-8 items-start">
+        <div className="flex flex-col gap-8">
+          {leftColumn.map((project) => <ProjectCard key={project.title} {...project} tallImage={tallImageSlugs.has(project.slug)} index={projects.indexOf(project)} />)}
+        </div>
+        <div className="flex flex-col gap-8">
+          {rightColumn.map((project) => <ProjectCard key={project.title} {...project} tallImage={tallImageSlugs.has(project.slug)} index={projects.indexOf(project)} />)}
+        </div>
       </div>
     </section>;
 }

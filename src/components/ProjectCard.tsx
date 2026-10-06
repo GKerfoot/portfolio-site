@@ -10,7 +10,7 @@ interface ProjectCardProps {
   color: string;
   image?: string;
   imagePosition?: string;
-  large?: boolean;
+  tallImage?: boolean;
   index: number;
 }
 export function ProjectCard({
@@ -21,7 +21,7 @@ export function ProjectCard({
   color,
   image,
   imagePosition,
-  large = false,
+  tallImage = false,
   index
 }: ProjectCardProps) {
   const [isHovered, setIsHovered] = useState(false);
@@ -44,7 +44,7 @@ export function ProjectCard({
     }} onHoverStart={() => setIsHovered(true)} onHoverEnd={() => setIsHovered(false)} className="relative overflow-hidden cursor-pointer group rounded-2xl">
         <div className="relative bg-navy/[0.03] border border-navy/10 hover:border-accent/40 transition-colors duration-300 rounded-2xl overflow-hidden">
           {/* Image or colored placeholder area */}
-          <div className={`relative overflow-hidden ${large ? 'h-80 md:h-96' : 'h-64'}`} style={{
+          <div className={`relative overflow-hidden ${tallImage ? 'h-80 md:h-96' : 'h-64'}`} style={{
           backgroundColor: color
         }}>
             {image ? <img src={image} alt={`${title} preview`} className={`absolute inset-0 w-full h-full object-cover ${imagePosition || 'object-top'}`} /> : <div className="absolute inset-0 opacity-[0.08]">
