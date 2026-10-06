@@ -54,7 +54,7 @@ export function About() {
             Skills & Tools
           </h3>
           <div className="grid grid-cols-2 gap-3">
-            {skills.map((skill) => <div key={skill} className="font-sans text-sm text-navy/60 border border-navy/10 rounded-xl px-4 py-3 hover:border-accent/40 hover:text-navy transition-colors duration-300">
+            {skills.map((skill) => <div key={skill} className="font-sans text-sm text-navy/60 border border-navy/10 rounded-xl px-4 py-3">
                 {skill}
               </div>)}
           </div>
