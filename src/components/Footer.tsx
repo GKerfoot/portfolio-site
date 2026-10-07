@@ -22,12 +22,12 @@ export function Footer() {
             icon: Icon,
             href,
             label
-          }) => <a key={label} href={href} aria-label={label} className="text-navy/30 hover:text-accent transition-colors duration-300">
+          }) => <a key={label} href={href} aria-label={label} className="text-black hover:text-accent transition-colors duration-300">
                 <Icon className="w-5 h-5" />
               </a>)}
           </div>
 
-          <p className="font-sans text-sm text-navy/30">
+          <p className="font-sans text-sm text-black">
             © 2026 Gretchen Kerfoot. All rights reserved.
           </p>
         </div>

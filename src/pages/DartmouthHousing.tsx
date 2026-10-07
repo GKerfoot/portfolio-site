@@ -117,7 +117,7 @@ export function DartmouthHousing() {
               <div className="h-px w-12 bg-navy/10" />
             </div>
             <h1 className="font-heading font-semibold text-5xl md:text-6xl lg:text-7xl text-navy mb-6 tracking-tight">
-              Dartmouth's Housing Project
+              Dartmouth Housing Project
             </h1>
             <p className="font-sans text-xl md:text-2xl text-navy/60 max-w-3xl leading-relaxed">
               How might we make Dartmouth students identify further with their

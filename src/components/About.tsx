@@ -16,10 +16,10 @@ export function About() {
       }} transition={{
         duration: 0.6
       }}>
-          <h2 className="font-heading font-semibold text-4xl md:text-5xl text-navy mb-6 tracking-tight">
+          <h2 className="font-heading font-semibold text-4xl md:text-5xl text-black mb-6 tracking-tight">
             About Me
           </h2>
-          <div className="space-y-4 font-sans text-navy/60 leading-relaxed">
+          <div className="space-y-4 font-sans text-black leading-relaxed">
             <p>
               Hello! My name is Gretchen, and I am a current senior at Dartmouth
               College. I study computer science and human-centered design,
@@ -32,7 +32,7 @@ export function About() {
               love skiing, hiking, SCUBA diving, and all things outdoors.
             </p>
           </div>
-          <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 mt-6 font-sans text-sm text-navy/50 hover:text-accent transition-colors duration-300">
+          <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 mt-6 font-sans text-sm text-black hover:text-accent transition-colors duration-300">
             <FileTextIcon className="w-4 h-4" />
             Resume
           </a>
@@ -50,11 +50,11 @@ export function About() {
         duration: 0.6,
         delay: 0.2
       }}>
-          <h3 className="font-heading font-semibold text-2xl text-navy mb-6 tracking-tight">
+          <h3 className="font-heading font-semibold text-2xl text-black mb-6 tracking-tight">
             Skills & Tools
           </h3>
           <div className="grid grid-cols-2 gap-3">
-            {skills.map((skill) => <div key={skill} className="font-sans text-sm text-navy/60 border border-navy/10 rounded-xl px-4 py-3">
+            {skills.map((skill) => <div key={skill} className="font-sans text-sm text-black border border-navy/10 rounded-xl px-4 py-3">
                 {skill}
               </div>)}
           </div>
