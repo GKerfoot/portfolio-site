@@ -1,0 +1,16 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="250" height="178" viewBox="0 0 250 178" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g filter="url(#sentry-white-texture)">
+<rect x="4" y="4" width="242" height="170" rx="30" fill="#FFFFFF"/>
+</g>
+<defs>
+<filter id="sentry-white-texture" x="0" y="0" width="250" height="178" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+<feTurbulence type="fractalNoise" baseFrequency="0.99900001287460327 0.99900001287460327" numOctaves="3" seed="9154"/>
+<feDisplacementMap in="shape" scale="2" xChannelSelector="R" yChannelSelector="G" result="displacedImage"/>
+<feMerge result="effect1_texture">
+<feMergeNode in="displacedImage"/>
+</feMerge>
+</filter>
+</defs>
+</svg>

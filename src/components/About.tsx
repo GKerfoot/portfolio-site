@@ -114,31 +114,22 @@ export function About() {
             <h3 className="font-heading text-[32px] font-semibold leading-[25px] text-black">Skills & Tools</h3>
           </div>
 
-          <Rotated x={76} y={3040.16} w={549.469} h={350.227} rotate={-1.85}>
-            <div className="relative h-[333px] w-[539px] bg-[#ebe8dd] shadow-[0px_8px_16px_0px_rgba(0,0,0,0.15)]">
-              <div
-                className="pointer-events-none absolute inset-0 opacity-25 mix-blend-soft-light"
-                style={{ backgroundImage: 'url(/cards/grain.png)', backgroundSize: '320px 320px' }}
-              />
-            </div>
-          </Rotated>
-          <Rotated x={93.64} y={3060.7} w={514.325} h={313.148} rotate={-1.85}>
-            <div className="relative box-border h-[297px] w-[505px] border-[3px] border-solid border-[#142794]">
-              <div
-                className="pointer-events-none absolute opacity-40 mix-blend-soft-light"
-                style={{
-                  inset: -3,
-                  padding: 3,
-                  backgroundImage: 'url(/cards/grain.png)',
-                  backgroundSize: '360px 360px',
-                  mask: 'linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0)',
-                  maskComposite: 'exclude',
-                  WebkitMask: 'linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0)',
-                  WebkitMaskComposite: 'xor'
-                }}
-              />
-            </div>
-          </Rotated>
+          <img
+            alt=""
+            src="/cards/punch-paper.png"
+            width={582}
+            height={383}
+            className="pointer-events-none absolute max-w-none"
+            style={{ ...at(60, 3032.162), width: 581.469, height: 382.227 }}
+          />
+          <img
+            alt=""
+            src="/cards/punch-border.png"
+            width={519}
+            height={318}
+            className="pointer-events-none absolute max-w-none"
+            style={{ ...at(91.573, 3058.637), width: 518.452, height: 317.277 }}
+          />
           {holes.map((hole) => (
             <Rotated key={`${hole.x}-${hole.y}`} x={hole.x} y={hole.y} w={54.651} h={53.684} rotate={-1.85}>
               <img alt="" src="/about/punch-hole.svg" width={53} height={52} className="block max-w-none" />
@@ -199,8 +190,8 @@ export function About() {
             labelY={3346}
           />
 
-          <p className="absolute w-[534px] font-heading text-[12px] font-normal leading-normal text-black" style={at(269, 3601)}>
-            © 2026 Gretchen Kerfoot. All rights reserved. No AI was used in creating this portfolio.
+          <p className="absolute left-1/2 top-[1193px] -translate-x-1/2 whitespace-nowrap text-center font-heading text-[12px] font-normal leading-normal text-black">
+            © 2026 Gretchen Kerfoot. All rights reserved. No AI was used in the design of this portfolio.
           </p>
         </div>
       </div>
@@ -318,9 +309,32 @@ function PhotoLink({
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className="absolute z-10 block"
+      className="group absolute z-10 block"
       style={{ ...at(left, top), width: right - left, height: bottom - top }}>
-      <img alt="" src={image} className="absolute max-w-none object-cover" style={{ left: x - left, top: y - top, width: w, height: h }} />
+      <span className="absolute block" style={{ left: x - left, top: y - top, width: w, height: h }}>
+        <img alt="" src={image} className="absolute inset-0 size-full max-w-none object-cover" />
+        <span
+          aria-hidden
+          className="pointer-events-none absolute inset-0 bg-accent opacity-0 group-hover:opacity-100"
+          style={{
+            maskImage: `url(${image})`,
+            WebkitMaskImage: `url(${image})`,
+            maskSize: '100% 100%',
+            WebkitMaskSize: '100% 100%',
+            maskRepeat: 'no-repeat',
+            WebkitMaskRepeat: 'no-repeat',
+            maskPosition: 'center',
+            WebkitMaskPosition: 'center',
+            maskMode: 'alpha'
+          }}
+        />
+        <img
+          alt=""
+          aria-hidden
+          src={image}
+          className="pointer-events-none absolute inset-0 size-full max-w-none origin-center object-cover opacity-0 [transform:scale(0.9)] group-hover:opacity-100"
+        />
+      </span>
       <span className="absolute font-heading text-[20px] font-semibold leading-[25px] text-black" style={{ left: labelX - left, top: labelY - top, width: 106 }}>
         {label}
       </span>

@@ -122,13 +122,27 @@ function LitboxdCard() {
   );
 }
 
+function FilmGrain() {
+  return (
+    <div
+      aria-hidden
+      className="pointer-events-none absolute inset-0 mix-blend-overlay opacity-80"
+      style={{ backgroundImage: 'url(/cards/film-grain.png)', backgroundSize: '160px 160px' }}
+    />
+  );
+}
+
 function HousingCard() {
   return (
     <CardFrame left={88} top={1270} width={525.717} height={298.455} href="/project/dartmouth-housing" label="Dartmouth Housing Project" tilt={3}>
     <div className="absolute contents h-[298.455px] left-[88px] top-[1270px] w-[525.717px]">
       <div className="absolute flex h-[298.455px] items-center justify-center left-[88px] top-[1270px] w-[525.717px]">
         <div className="flex-none rotate-[1.16deg]">
-          <div className="h-[288px] relative rounded-[30px] shadow-[0px_8px_16px_0px_rgba(0,0,0,0.15)] w-[520px]" style={{ backgroundImage: 'linear-gradient(180deg, rgba(0, 0, 0, 0.2) 0%, rgba(102, 102, 102, 0.2) 100%), linear-gradient(90deg, rgb(1, 50, 35) 0%, rgb(1, 50, 35) 100%)' }} />
+          <div className="relative h-[288px] w-[520px] rounded-[30px] shadow-[0px_8px_16px_0px_rgba(0,0,0,0.15)]">
+            <div className="absolute inset-0 overflow-hidden rounded-[30px]" style={{ backgroundImage: 'linear-gradient(180deg, rgba(0, 0, 0, 0.2) 0%, rgba(102, 102, 102, 0.2) 100%), linear-gradient(90deg, rgb(1, 50, 35) 0%, rgb(1, 50, 35) 100%)' }}>
+              <FilmGrain />
+            </div>
+          </div>
         </div>
       </div>
       <div className="absolute flex h-[33.716px] items-center justify-center left-[122.75px] top-[1295.6px] w-[283.508px]">
@@ -346,17 +360,15 @@ function SentryCard() {
     <div className="absolute contents h-[556.026px] left-[93px] top-[1599px] w-[359.82px]">
       <div className="absolute flex h-[556.026px] items-center justify-center left-[93px] top-[1599px] w-[359.82px]">
         <div className="flex-none rotate-[-8.27deg]">
-          <div className="relative h-[520px] w-[288px] rounded-[30px] shadow-[0px_8px_16px_0px_rgba(0,0,0,0.15)]">
-            <div className="absolute inset-0 overflow-hidden rounded-[30px]" style={{ backgroundImage: 'linear-gradient(180deg, rgba(0, 0, 0, 0.2) 0%, rgba(102, 102, 102, 0.2) 100%), linear-gradient(90deg, rgb(160, 12, 15) 0%, rgb(160, 12, 15) 100%)' }}>
-              <div className="pointer-events-none absolute inset-0 mix-blend-overlay" style={{ backgroundImage: 'url(/cards/grain.png)', backgroundSize: '140px 140px' }} />
-            </div>
+          <div className="relative h-[520px] w-[288px]">
+            <img alt="" src="/cards/sentry-red.svg" width={296} height={528} className="absolute left-[-4px] top-[-4px] block max-w-none drop-shadow-[0px_8px_16px_rgba(0,0,0,0.15)]" />
           </div>
         </div>
       </div>
       <div className="absolute flex h-[533.357px] items-center justify-center left-[104.33px] top-[1610.33px] w-[337.15px]">
         <div className="flex-none rotate-[-8.27deg]">
-          <div className="relative h-[500px] w-[268px] overflow-hidden rounded-[30px] bg-[#040b2e]">
-            <div className="pointer-events-none absolute inset-0 mix-blend-overlay" style={{ backgroundImage: 'url(/cards/grain.png)', backgroundSize: '140px 140px' }} />
+          <div className="relative h-[500px] w-[268px]">
+            <img alt="" src="/cards/sentry-navy.svg" width={276} height={508} className="absolute left-[-4px] top-[-4px] block max-w-none" />
           </div>
         </div>
       </div>
@@ -370,7 +382,9 @@ function SentryCard() {
       </div>
       <div className="absolute flex h-[203.05px] items-center justify-center left-[163.8px] top-[1925.77px] w-[263.941px]">
         <div className="flex-none rotate-[-8.27deg]">
-          <div className="bg-white h-[170px] relative rounded-[30px] w-[242px]" />
+          <div className="relative h-[170px] w-[242px]">
+            <img alt="" src="/cards/sentry-white.svg" width={250} height={178} className="absolute left-[-4px] top-[-4px] block max-w-none" />
+          </div>
         </div>
       </div>
       <div className="-translate-y-1/2 absolute flex h-[40.851px] items-center justify-center left-[189.87px] top-[1976.43px] w-[167.708px]">

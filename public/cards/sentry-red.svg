@@ -1,0 +1,21 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="296" height="528" viewBox="0 0 296 528" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g filter="url(#sentry-red-texture)">
+<rect x="4" y="4" width="288" height="520" rx="30" fill="#A00C0F"/>
+<rect x="4" y="4" width="288" height="520" rx="30" fill="url(#sentry-red-shade)"/>
+</g>
+<defs>
+<linearGradient id="sentry-red-shade" x1="148" y1="4" x2="148" y2="524" gradientUnits="userSpaceOnUse">
+<stop stop-color="#000000" stop-opacity="0.2"/>
+<stop offset="1" stop-color="#666666" stop-opacity="0.2"/>
+</linearGradient>
+<filter id="sentry-red-texture" x="0" y="0" width="296" height="528" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+<feTurbulence type="fractalNoise" baseFrequency="0.99900001287460327 0.99900001287460327" numOctaves="3" seed="2683"/>
+<feDisplacementMap in="shape" scale="2" xChannelSelector="R" yChannelSelector="G" result="displacedImage"/>
+<feMerge result="effect1_texture">
+<feMergeNode in="displacedImage"/>
+</feMerge>
+</filter>
+</defs>
+</svg>
