@@ -179,8 +179,18 @@ function PersonCutout({
 function CardBack({ onFlip, active }: { onFlip: () => void; active: boolean }) {
   return (
     <div
-      className="absolute inset-0 overflow-hidden rounded-[30px] bg-white shadow-[0px_8px_16px_0px_rgba(0,0,0,0.15)] [transform:rotateY(180deg)]"
-      style={{ backfaceVisibility: 'hidden', WebkitBackfaceVisibility: 'hidden', pointerEvents: active ? 'auto' : 'none' }}>
+      className="absolute inset-0 shadow-[0px_8px_16px_0px_rgba(0,0,0,0.15)] [transform:rotateY(180deg)]"
+      style={{ backfaceVisibility: 'hidden', WebkitBackfaceVisibility: 'hidden' }}>
+      <IdCardBack onFlip={onFlip} active={active} />
+    </div>
+  );
+}
+
+export function IdCardBack({ onFlip, active }: { onFlip: () => void; active: boolean }) {
+  return (
+    <div
+      className="relative h-full w-full overflow-hidden rounded-[30px] bg-white"
+      style={{ pointerEvents: active ? 'auto' : 'none' }}>
       <img
         src="/hero/card-texture.png"
         alt=""

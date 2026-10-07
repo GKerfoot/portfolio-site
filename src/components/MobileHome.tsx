@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { PolaroidStack, polaroidCount } from './PolaroidCarousel';
+import { IdCardBack } from './Hero';
 
 const polaroidWindow = { x: 472, y: 68, w: 526, h: 472 };
 const polaroidScale = 322 / polaroidWindow.w;
@@ -8,60 +10,97 @@ const polaroidHeight = polaroidWindow.h * polaroidScale;
 const polaroidLeft = (402 - polaroidWidth) / 2;
 const polaroidTop = 2726 + (324 - polaroidHeight) / 2;
 
+const idScale = 359.306 / 520;
+
+function SentryShape({
+  src,
+  width,
+  svgWidth,
+  svgHeight,
+  shadow
+}: {
+  src: string;
+  width: number;
+  svgWidth: number;
+  svgHeight: number;
+  shadow?: boolean;
+}) {
+  const scale = width / (svgWidth - 8);
+  return (
+    <img
+      alt=""
+      src={src}
+      className={`pointer-events-none absolute block max-w-none ${shadow ? 'drop-shadow-[0px_5.5px_11px_rgba(0,0,0,0.15)]' : ''}`}
+      style={{ left: -4 * scale, top: -4 * scale, width: svgWidth * scale, height: svgHeight * scale }}
+    />
+  );
+}
+
 export function MobileHome() {
   const [frame, setFrame] = useState(0);
+  const [flipped, setFlipped] = useState(false);
   return (
     <div className="bg-white md:hidden [container-type:inline-size]">
       <div className="relative mx-auto w-full max-w-[402px]" style={{ height: 'calc(4000px * min(1, 100cqw / 402px))' }}>
         <div className="absolute left-0 top-0 origin-top-left" style={{ width: 402, height: 4000, transform: 'scale(min(1, 100cqw / 402px))' }}>
 
     <div className="relative bg-white" data-name="Mobile Version" style={{ width: 402, height: 4000 }}>
-      <div className="absolute contents left-[21px] top-[192px]" data-node-id="70:414">
-        <div className="absolute h-[199px] left-[21px] rounded-[20.729px] shadow-[0px_5.528px_11.056px_0px_rgba(0,0,0,0.15)] top-[192px] w-[359.306px]" data-node-id="70:415">
-          <div aria-hidden className="absolute inset-0 pointer-events-none rounded-[20.729px]">
-            <div className="absolute bg-white inset-0 rounded-[20.729px]" />
-            <img alt="" className="absolute max-w-none object-cover opacity-50 rounded-[20.729px] size-full" src="/mobile/id-texture.png" />
+      <div className="absolute left-[21px] top-[192px] z-20 h-[199px] w-[359.306px] [perspective:1200px]">
+        <div className={`relative h-full w-full transition-transform duration-700 [transform-style:preserve-3d] motion-reduce:transition-none ${flipped ? '[transform:rotateY(180deg)]' : ''}`}>
+          <button
+            type="button"
+            aria-label="Flip ID card"
+            onClick={() => setFlipped(true)}
+            className="absolute inset-0 cursor-pointer border-0 bg-transparent p-0"
+            style={{ backfaceVisibility: 'hidden', WebkitBackfaceVisibility: 'hidden', pointerEvents: flipped ? 'none' : 'auto' }}>
+            <div className="pointer-events-none absolute inset-0 rounded-[20.729px] shadow-[0px_5.528px_11.056px_0px_rgba(0,0,0,0.15)]">
+              <div aria-hidden className="absolute inset-0 overflow-hidden rounded-[20.729px]">
+                <div className="absolute inset-0 bg-white" />
+                <img alt="" className="absolute size-full max-w-none object-cover opacity-50" src="/mobile/id-texture.png" />
+              </div>
+            </div>
+            <div className="pointer-events-none absolute left-[20.73px] top-[40.77px] h-[113.319px] w-[104.337px]">
+              <div className="absolute inset-0 bg-white" />
+              <img alt="" className="absolute size-full max-w-none object-cover opacity-80" src="/mobile/id-photo.png" />
+            </div>
+            <p className="pointer-events-none absolute left-[20.73px] top-[16.58px] h-[19.347px] w-[156.16px] text-left font-heading text-[13.819px] font-semibold leading-[normal] text-black">
+              Gretchen Kerfoot
+            </p>
+            <p className="pointer-events-none absolute left-[267.41px] top-[172.74px] h-[14.51px] w-[83.608px] text-left font-heading text-[11.056px] font-semibold leading-[normal] text-black">
+              Class of 2027
+            </p>
+            <p className="pointer-events-none absolute left-[137.5px] top-[40.77px] h-[12.438px] w-[216.965px] text-left font-heading text-[10.365px] font-semibold leading-[normal] text-black">
+              Student at Dartmouth College
+            </p>
+            <p className="pointer-events-none absolute left-[137.5px] top-[72.55px] h-[12.438px] w-[216.965px] text-left font-heading text-[10.365px] font-semibold leading-[normal] text-black">
+              Incoming Business Analyst
+            </p>
+            <p className="pointer-events-none absolute left-[137.5px] top-[104.34px] h-[12.438px] w-[216.965px] text-left font-heading text-[10.365px] font-semibold leading-[normal] text-black">
+              Interests
+            </p>
+            <p className="pointer-events-none absolute left-[137.5px] top-[55.28px] h-[12.438px] w-[216.965px] text-left font-heading text-[8.292px] font-normal leading-[normal] text-black">
+              Computer Science and Human-Centered Design
+            </p>
+            <p className="pointer-events-none absolute left-[137.5px] top-[87.06px] h-[12.438px] w-[216.965px] text-left font-heading text-[8.292px] font-normal leading-[normal] text-black">
+              @ McKinsey Denver
+            </p>
+            <div className="pointer-events-none absolute left-[137.5px] top-[118.85px] h-[31.094px] w-[216.965px] text-left font-heading text-[8.292px] font-normal leading-[normal] text-black">
+              <p className="mb-0">Design Thinking</p>
+              <p className="mb-0">Creative Problem-Solving</p>
+              <p>Skiing & The Outdoors</p>
+            </div>
+            <div className="pointer-events-none absolute left-[26.95px] top-[161px] h-[27.639px] w-[84.99px]">
+              <img alt="" className="block size-full max-w-none" src="/mobile/signature.svg" />
+            </div>
+            <img alt="" className="pointer-events-none absolute left-[315.77px] top-[137.5px] size-[29.712px] max-w-none object-cover" src="/mobile/dartmouth.png" />
+          </button>
+          <div
+            className="absolute inset-0 overflow-hidden rounded-[20.729px] shadow-[0px_5.528px_11.056px_0px_rgba(0,0,0,0.15)] [transform:rotateY(180deg)]"
+            style={{ backfaceVisibility: 'hidden', WebkitBackfaceVisibility: 'hidden' }}>
+            <div className="absolute left-0 top-0 h-[288px] w-[520px] origin-top-left" style={{ transform: `scale(${idScale})` }}>
+              <IdCardBack onFlip={() => setFlipped(false)} active={flipped} />
+            </div>
           </div>
-        </div>
-        <div className="absolute h-[113.319px] left-[41.73px] top-[232.77px] w-[104.337px]" data-node-id="70:416">
-          <div aria-hidden className="absolute inset-0 pointer-events-none">
-            <div className="absolute bg-white inset-0" />
-            <img alt="" className="absolute max-w-none object-cover opacity-80 size-full" src="/mobile/id-photo.png" />
-          </div>
-        </div>
-        <p className="[word-break:break-word] absolute font-heading font-semibold h-[19.347px] leading-[normal] left-[41.73px] text-[13.819px] text-black top-[208.58px] w-[156.16px]" data-node-id="70:417">
-          Gretchen Kerfoot
-        </p>
-        <p className="[word-break:break-word] absolute font-heading font-semibold h-[14.51px] leading-[normal] left-[288.41px] text-[11.056px] text-black top-[364.74px] w-[83.608px]" data-node-id="70:418">
-          Class of 2027
-        </p>
-        <p className="[word-break:break-word] absolute font-heading font-semibold h-[12.438px] leading-[normal] left-[158.5px] text-[10.365px] text-black top-[232.77px] w-[216.965px]" data-node-id="70:419">
-          Student at Dartmouth College
-        </p>
-        <p className="[word-break:break-word] absolute font-heading font-semibold h-[12.438px] leading-[normal] left-[158.5px] text-[10.365px] text-black top-[264.55px] w-[216.965px]" data-node-id="70:420">
-          Incoming Business Analyst
-        </p>
-        <p className="[word-break:break-word] absolute font-heading font-semibold h-[12.438px] leading-[normal] left-[158.5px] text-[10.365px] text-black top-[296.34px] w-[216.965px]" data-node-id="70:421">
-          Interests
-        </p>
-        <p className="[word-break:break-word] absolute font-heading font-normal h-[12.438px] leading-[normal] left-[158.5px] text-[8.292px] text-black top-[247.28px] w-[216.965px]" data-node-id="70:422">
-          Computer Science and Human-Centered Design
-        </p>
-        <p className="[word-break:break-word] absolute font-heading font-normal h-[12.438px] leading-[normal] left-[158.5px] text-[8.292px] text-black top-[279.06px] w-[216.965px]" data-node-id="70:423">
-          @ McKinsey Denver
-        </p>
-        <div className="[word-break:break-word] absolute font-heading font-normal h-[31.094px] leading-[0] left-[158.5px] text-[8.292px] text-black top-[310.85px] w-[216.965px]" data-node-id="70:424">
-          <p className="leading-[normal] mb-0">Design Thinking</p>
-          <p className="leading-[normal] mb-0">Creative Problem-Solving</p>
-          <p className="leading-[normal]">{`Skiing & The Outdoors`}</p>
-        </div>
-        <div className="absolute h-[27.639px] left-[47.95px] top-[353px] w-[84.99px]" data-node-id="70:425">
-          <div className="absolute inset-[-2.5%_-0.81%]">
-            <img alt="" className="block max-w-none size-full" src="/mobile/signature.svg" />
-          </div>
-        </div>
-        <div className="absolute left-[336.77px] size-[29.712px] top-[329.5px]" data-node-id="70:426" data-name="image 12">
-          <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src="/mobile/dartmouth.png" />
         </div>
       </div>
       <p className="[word-break:break-word] absolute font-heading font-semibold h-[36px] leading-[37.674px] left-[21px] text-[40.186px] text-black top-[95px] w-[360.837px]" data-node-id="70:413">
@@ -204,7 +243,10 @@ export function MobileHome() {
         <div className="absolute contents h-[205.085px] left-[18.94px] top-[1273px] w-[361.249px]" data-node-id="70:429">
           <div className="absolute flex h-[205.085px] items-center justify-center left-[18.94px] top-[1273px] w-[361.249px]" data-node-id="70:430">
             <div className="flex-none rotate-[1.16deg]">
-              <div className="h-[197.9px] relative rounded-[20.615px] shadow-[0px_5.497px_10.994px_0px_rgba(0,0,0,0.15)] w-[357.32px]" style={{ backgroundImage: "linear-gradient(180deg, rgba(0, 0, 0, 0.2) 0%, rgba(102, 102, 102, 0.2) 100%), linear-gradient(90deg, rgb(1, 50, 35) 0%, rgb(1, 50, 35) 100%)" }} />
+              <div className="relative h-[197.9px] w-[357.32px] overflow-hidden rounded-[20.615px] shadow-[0px_5.497px_10.994px_0px_rgba(0,0,0,0.15)]">
+                <div className="absolute inset-0" style={{ backgroundImage: "linear-gradient(180deg, rgba(0, 0, 0, 0.2) 0%, rgba(102, 102, 102, 0.2) 100%), linear-gradient(90deg, rgb(1, 50, 35) 0%, rgb(1, 50, 35) 100%)" }} />
+                <div aria-hidden className="pointer-events-none absolute inset-0 opacity-80 mix-blend-overlay" style={{ backgroundImage: 'url(/cards/film-grain.png)', backgroundSize: '110px 110px' }} />
+              </div>
             </div>
           </div>
           <div className="absolute flex h-[23.168px] items-center justify-center left-[42.82px] top-[1290.59px] w-[194.814px]" data-node-id="70:431">
@@ -363,7 +405,9 @@ export function MobileHome() {
         <div className="absolute contents h-[410.353px] left-[62px] top-[1746px] w-[265.551px]" data-node-id="70:475">
           <div className="absolute flex h-[410.353px] items-center justify-center left-[62px] top-[1746px] w-[265.551px]" data-node-id="70:476">
             <div className="flex-none rotate-[-8.27deg]">
-              <div className="h-[383.765px] relative rounded-[22.14px] w-[212.547px]" style={{ backgroundImage: "linear-gradient(180deg, rgba(0, 0, 0, 0.2) 0%, rgba(102, 102, 102, 0.2) 100%), linear-gradient(90deg, rgb(160, 12, 15) 0%, rgb(160, 12, 15) 100%)" }} />
+              <div className="relative h-[383.765px] w-[212.547px]">
+                <SentryShape src="/cards/sentry-red.svg" width={212.547} svgWidth={296} svgHeight={528} shadow />
+              </div>
             </div>
           </div>
           <div className="absolute flex h-[393.623px] items-center justify-center left-[70.36px] top-[1754.37px] w-[248.82px]" data-node-id="70:477">
@@ -405,7 +449,9 @@ export function MobileHome() {
           </div>
           <div className="absolute flex h-[149.853px] items-center justify-center left-[114.25px] top-[1987.16px] w-[194.791px]" data-node-id="70:485">
             <div className="flex-none rotate-[-8.27deg]">
-              <div className="bg-white h-[125.462px] relative rounded-[22.14px] w-[178.598px]" />
+              <div className="relative h-[125.462px] w-[178.598px]">
+                <SentryShape src="/cards/sentry-white.svg" width={178.598} svgWidth={250} svgHeight={178} />
+              </div>
             </div>
           </div>
           <div className="-translate-y-1/2 absolute flex h-[30.148px] items-center justify-center left-[133.49px] top-[2024.55px] w-[123.77px]" data-node-id="70:486">
@@ -503,12 +549,12 @@ export function MobileHome() {
       <div className="absolute contents h-[226.773px] left-[18px] top-[3109px] w-[358.853px]" data-node-id="70:515">
         <div className="absolute flex h-[226.668px] items-center justify-center left-[18px] top-[3109.1px] w-[355.619px]" data-node-id="70:516">
           <div className="flex-none rotate-[-1.85deg]">
-            <div className="bg-[#ebe8dd] h-[215.519px] relative w-[348.843px]" />
+            <img alt="" src="/cards/punch-paper.png" className="h-[215.519px] w-[348.843px] max-w-none object-fill" />
           </div>
         </div>
         <div className="absolute flex h-[202.671px] items-center justify-center left-[29.41px] top-[3122.4px] w-[332.873px]" data-node-id="70:517">
           <div className="flex-none rotate-[-1.85deg]">
-            <div className="border-[#142794] border-[1.942px] border-solid h-[192.22px] relative w-[326.838px]" />
+            <img alt="" src="/cards/punch-border.png" className="h-[192.22px] w-[326.838px] max-w-none object-fill" />
           </div>
         </div>
         <div className="absolute flex h-[26.775px] items-center justify-center left-[50.12px] top-[3190.31px] w-[68.715px]" data-node-id="70:518">
@@ -636,11 +682,11 @@ export function MobileHome() {
         <p className="leading-[normal]">© 2026 Gretchen Kerfoot. All rights reserved. No AI was used in the design of this portfolio.</p>
       </div>
 
-      <a href="/project/litboxd" aria-label="Litboxd" className="absolute left-[13px] top-[636px] z-10 block h-[217px] w-[367px]" />
-      <a href="/project/adapt-a-mask" aria-label="Adapt-a-Mask" className="absolute left-[96px] top-[882px] z-10 block h-[362px] w-[210px]" />
-      <a href="/project/dartmouth-housing" aria-label="Dartmouth Housing Project" className="absolute left-[19px] top-[1273px] z-10 block h-[205px] w-[361px]" />
+      <Link to="/project/litboxd" aria-label="Litboxd" className="absolute left-[13px] top-[636px] z-10 block h-[217px] w-[367px]" />
+      <Link to="/project/adapt-a-mask" aria-label="Adapt-a-Mask" className="absolute left-[96px] top-[882px] z-10 block h-[362px] w-[210px]" />
+      <Link to="/project/dartmouth-housing" aria-label="Dartmouth Housing Project" className="absolute left-[19px] top-[1273px] z-10 block h-[205px] w-[361px]" />
       <div data-cursor="ned" aria-label="Ned.ai" className="absolute left-[15px] top-[1497px] z-10 h-[230px] w-[380px]" />
-      <a href="/project/sentry" aria-label="Sentry" className="absolute left-[62px] top-[1746px] z-10 block h-[410px] w-[266px]" />
+      <Link to="/project/sentry" aria-label="Sentry" className="absolute left-[62px] top-[1746px] z-10 block h-[410px] w-[266px]" />
       <button type="button" aria-label="Show the previous photo" onClick={() => setFrame((frame) => (frame + polaroidCount - 1) % polaroidCount)} className="absolute left-[8px] top-[2846px] z-10 h-[40px] w-[28px] bg-transparent" />
       <button type="button" aria-label="Show the next photo" onClick={() => setFrame((frame) => (frame + 1) % polaroidCount)} className="absolute left-[368px] top-[2833px] z-10 h-[40px] w-[28px] bg-transparent" />
       <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" aria-label="Resume" className="absolute left-[57px] top-[3432px] z-10 block h-[180px] w-[120px]" />
