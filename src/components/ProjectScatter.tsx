@@ -346,12 +346,18 @@ function SentryCard() {
     <div className="absolute contents h-[556.026px] left-[93px] top-[1599px] w-[359.82px]">
       <div className="absolute flex h-[556.026px] items-center justify-center left-[93px] top-[1599px] w-[359.82px]">
         <div className="flex-none rotate-[-8.27deg]">
-          <div className="h-[520px] relative rounded-[30px] shadow-[0px_8px_16px_0px_rgba(0,0,0,0.15)] w-[288px]" style={{ backgroundImage: 'linear-gradient(180deg, rgba(0, 0, 0, 0.2) 0%, rgba(102, 102, 102, 0.2) 100%), linear-gradient(90deg, rgb(160, 12, 15) 0%, rgb(160, 12, 15) 100%)' }} />
+          <div className="relative h-[520px] w-[288px] rounded-[30px] shadow-[0px_8px_16px_0px_rgba(0,0,0,0.15)]">
+            <div className="absolute inset-0 overflow-hidden rounded-[30px]" style={{ backgroundImage: 'linear-gradient(180deg, rgba(0, 0, 0, 0.2) 0%, rgba(102, 102, 102, 0.2) 100%), linear-gradient(90deg, rgb(160, 12, 15) 0%, rgb(160, 12, 15) 100%)' }}>
+              <div className="pointer-events-none absolute inset-0 mix-blend-overlay" style={{ backgroundImage: 'url(/cards/grain.png)', backgroundSize: '140px 140px' }} />
+            </div>
+          </div>
         </div>
       </div>
       <div className="absolute flex h-[533.357px] items-center justify-center left-[104.33px] top-[1610.33px] w-[337.15px]">
         <div className="flex-none rotate-[-8.27deg]">
-          <div className="bg-[#040b2e] h-[500px] relative rounded-[30px] w-[268px]" />
+          <div className="relative h-[500px] w-[268px] overflow-hidden rounded-[30px] bg-[#040b2e]">
+            <div className="pointer-events-none absolute inset-0 mix-blend-overlay" style={{ backgroundImage: 'url(/cards/grain.png)', backgroundSize: '140px 140px' }} />
+          </div>
         </div>
       </div>
       <div className="absolute contents h-[118.508px] left-[116.25px] top-[1625.65px] w-[257.31px]">
