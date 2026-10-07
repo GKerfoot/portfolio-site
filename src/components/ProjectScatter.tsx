@@ -37,6 +37,7 @@ function CardFrame({
   href,
   label,
   tilt,
+  cursor,
   children
 }: {
   left: number;
@@ -46,6 +47,7 @@ function CardFrame({
   href?: string;
   label?: string;
   tilt: number;
+  cursor?: string;
   children: React.ReactNode;
 }) {
   const className = `group absolute block ${href ? 'cursor-pointer' : ''}`;
@@ -59,13 +61,13 @@ function CardFrame({
   );
   if (href) {
     return (
-      <Link to={href} aria-label={label} className={className} style={style}>
+      <Link to={href} aria-label={label} className={className} style={style} data-cursor={cursor}>
         {inner}
       </Link>
     );
   }
   return (
-    <div className={className} style={style}>
+    <div className={className} style={style} data-cursor={cursor}>
       {inner}
     </div>
   );
@@ -269,7 +271,7 @@ function AdaptCard() {
 
 function NedCard() {
   return (
-    <CardFrame left={470} top={1580} width={541.276} height={328.481} tilt={-3}>
+    <CardFrame left={470} top={1580} width={541.276} height={328.481} tilt={-3} cursor="ned">
     <div className="absolute contents h-[328.481px] left-[470px] top-[1580px] w-[541.276px]">
       <div className="absolute flex h-[328.481px] items-center justify-center left-[470px] top-[1580px] w-[541.276px]">
         <div className="flex-none rotate-[-4.57deg]">

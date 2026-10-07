@@ -16,3 +16,24 @@ body {
   background-color: #ffffff;
   color: #000000;
 }
+
+@media (hover: hover) and (pointer: fine) {
+  html,
+  html * {
+    cursor: url('/cursor/arrow.png') 5 0, auto;
+  }
+
+  html a,
+  html button,
+  html [role='button'],
+  html summary,
+  html input,
+  html textarea,
+  html select,
+  html label,
+  html .cursor-pointer,
+  html [data-cursor='ned'],
+  html [data-cursor='ned'] * {
+    cursor: url('/cursor/hand.png') 10 0, pointer;
+  }
+}
