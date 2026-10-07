@@ -108,8 +108,8 @@ export function About() {
   const stack = carousel[frameIndex];
 
   return (
-    <section className="mx-auto w-full max-w-7xl px-6 pt-16 [container-type:inline-size] md:px-12 lg:px-24">
-      <div className="relative w-full" style={{ height: `calc(${stageHeight}px * ${stageScale})` }}>
+    <section className="px-6 pt-16 [container-type:inline-size]">
+      <div className="relative mx-auto w-full max-w-[996px]" style={{ height: `calc(${stageHeight}px * ${stageScale})` }}>
         <div
           className="absolute left-0 top-0 origin-top-left"
           style={{ width: stageWidth, height: stageHeight, transform: `scale(${stageScale})` }}>

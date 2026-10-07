@@ -2,7 +2,8 @@ import React from 'react';
 import { ProjectScatter } from './ProjectScatter';
 
 export function ProjectGrid() {
-  return <section className="px-6 md:px-12 lg:px-24 pb-24 pt-0 max-w-7xl mx-auto">
+  return <section className="px-6 pb-24 pt-0 [container-type:inline-size]">
+      <div className="mx-auto w-full max-w-[961px]">
       <div className="mb-16">
         <h2 className="font-heading text-[48px] font-semibold leading-normal text-black">
           Selected Work
@@ -13,5 +14,6 @@ export function ProjectGrid() {
       </div>
 
       <ProjectScatter />
+      </div>
     </section>;
 }
