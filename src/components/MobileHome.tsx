@@ -1,17 +1,15 @@
 import React, { useState } from 'react';
+import { PolaroidStack, polaroidCount } from './PolaroidCarousel';
 
-const frames = [
-  { back: '/mobile/london.png', mid: '/mobile/whitney.png', front: '/mobile/tuckerman.png', backCap: 'My summer in London!', midCap: 'Mt. Whitney!', frontCap: 'Tuckerman’s Ravine!' },
-  { back: '/about/tuckerman.jpg', mid: '/about/sudoku.jpg', front: '/about/whitney.jpg', backCap: 'Tuckerman’s Ravine!', midCap: 'My strange addiction to sudoku!', frontCap: 'Mt. Whitney!' },
-  { back: '/about/whitney.jpg', mid: '/about/camino.jpg', front: '/about/sudoku.jpg', backCap: 'Mt. Whitney!', midCap: 'Completing the Camino de Santiago!', frontCap: 'My strange addiction to sudoku!' },
-  { back: '/about/sudoku.jpg', mid: '/about/hiking.jpg', front: '/about/camino.jpg', backCap: 'My strange addiction to sudoku!', midCap: 'Hiking for 55 miles straight!', frontCap: 'Completing the Camino de Santiago!' },
-  { back: '/about/camino.jpg', mid: '/about/london.jpg', front: '/about/hiking.jpg', backCap: 'Completing the Camino de Santiago!', midCap: 'My summer in London!', frontCap: 'Hiking for 55 miles straight!' },
-  { back: '/about/tuckerman.jpg', mid: '/about/hiking.jpg', front: '/about/london.jpg', backCap: 'Tuckerman’s Ravine!', midCap: 'Hiking for 55 miles straight!', frontCap: 'My summer in London!' }
-];
+const polaroidWindow = { x: 472, y: 68, w: 526, h: 472 };
+const polaroidScale = 322 / polaroidWindow.w;
+const polaroidWidth = polaroidWindow.w * polaroidScale;
+const polaroidHeight = polaroidWindow.h * polaroidScale;
+const polaroidLeft = (402 - polaroidWidth) / 2;
+const polaroidTop = 2726 + (324 - polaroidHeight) / 2;
 
 export function MobileHome() {
   const [frame, setFrame] = useState(0);
-  const photos = frames[frame];
   return (
     <div className="bg-white md:hidden [container-type:inline-size]">
       <div className="relative mx-auto w-full max-w-[402px]" style={{ height: 'calc(4000px * min(1, 100cqw / 402px))' }}>
@@ -479,66 +477,22 @@ export function MobileHome() {
         <p className="leading-[25px] mb-0">​</p>
         <p className="leading-[25px]">Outside of my studies, I am a member of the Dartmouth Ski Patrol, sister of Sigma Delta sorority, and the vice president of the Casual Thursday Improv Troupe. I love skiing, hiking, SCUBA diving, geocaching, and pretty much everything else outdoors.</p>
       </div>
-      <div className="absolute contents h-[220.176px] left-[72.28px] top-[2764.79px] w-[269.416px]" data-node-id="70:494">
-        <div className="absolute flex h-[220.176px] items-center justify-center left-[72.28px] top-[2764.79px] w-[269.416px]" data-node-id="70:495">
-          <div className="flex-none rotate-[2.51deg]">
-            <div className="bg-[#eee] h-[208.964px] relative w-[260.51px]" />
-          </div>
-        </div>
-        <div className="absolute flex h-[168.86px] items-center justify-center left-[85.46px] top-[2777.18px] w-[244.604px]" data-node-id="70:496">
-          <div className="flex-none rotate-[2.51deg] skew-x-[-0.01deg]">
-            <div className="h-[158.607px] relative w-[237.873px]" data-name="6271CC1E-16BE-43C8-BBC7-4A8DAB3AA38A_1_105_c 1">
-              <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={photos.back} />
-            </div>
-          </div>
-        </div>
-        <div className="-translate-x-1/2 -translate-y-1/2 absolute flex h-[24.608px] items-center justify-center left-[203.09px] top-[2959.25px] w-[173.462px]" data-node-id="70:497">
-          <div className="flex-none rotate-[2.51deg]">
-            <div className="[word-break:break-word] flex flex-col font-heading font-normal h-[17.05px] justify-center leading-[0] relative text-[9.592px] text-black text-center w-[172.881px]">
-              <p className="leading-[normal]">{photos.backCap}</p>
-            </div>
-          </div>
-        </div>
-      </div>
       <div className="-translate-x-1/2 -translate-y-1/2 [word-break:break-word] absolute flex flex-col font-heading font-semibold h-[34.256px] justify-center leading-[0] left-[117.84px] text-[16.443px] text-black text-center top-[2703.13px] w-[158.264px]" data-node-id="70:498">
         <p className="leading-[normal]">Ask me about...</p>
       </div>
-      <div className="absolute contents h-[276.367px] left-[55.16px] top-[2736.01px] w-[204.207px]" data-node-id="70:499">
-        <div className="absolute flex h-[276.367px] items-center justify-center left-[55.16px] top-[2736.01px] w-[204.207px]" data-node-id="70:500">
-          <div className="flex-none rotate-[-5.34deg]">
-            <div className="bg-[#eee] h-[260.69px] relative shadow-[0px_5.481px_10.962px_0px_rgba(0,0,0,0.15)] w-[180.75px]" />
-          </div>
-        </div>
-        <div className="absolute flex h-[224.457px] items-center justify-center left-[67.51px] top-[2747.66px] w-[176.896px]" data-node-id="70:501">
-          <div className="flex-none rotate-[-5.34deg]">
-            <div className="h-[210.679px] relative w-[157.991px]" data-name="64EFDE4F-6F56-4C92-9E52-2E7F0FF6025E_4_5005_c 2">
-              <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={photos.mid} />
-            </div>
-          </div>
-        </div>
-        <div className="-translate-x-1/2 -translate-y-1/2 absolute flex h-[32.824px] items-center justify-center left-[167.26px] top-[2983.41px] w-[172.523px]" data-node-id="70:502">
-          <div className="flex-none rotate-[-5.34deg]">
-            <div className="[word-break:break-word] flex flex-col font-heading font-normal h-[16.933px] justify-center leading-[0] relative text-[13.703px] text-black text-center w-[171.693px]">
-              <p className="leading-[normal]">{photos.midCap}</p>
-            </div>
-          </div>
+      <div className="pointer-events-none absolute" style={{ left: polaroidLeft, top: polaroidTop, width: polaroidWidth, height: polaroidHeight }}>
+        <div
+          className="absolute left-0 top-0 origin-top-left"
+          style={{ width: 996, height: 1255, transform: `scale(${polaroidScale}) translate(${-polaroidWindow.x}px, ${-polaroidWindow.y}px)` }}>
+          <PolaroidStack index={frame} />
         </div>
       </div>
-      <div className="absolute contents left-[106.54px] top-[2736.01px]" data-node-id="70:503">
-        <div className="absolute bg-[#eee] h-[260.69px] left-[106.54px] top-[2736.01px] w-[180.75px]" data-node-id="70:504" />
-        <div className="absolute h-[210.678px] left-[117.96px] top-[2746.65px] w-[158.009px]" data-node-id="70:505" data-name="64EFDE4F-6F56-4C92-9E52-2E7F0FF6025E_4_5005_c 2">
-          <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={photos.front} />
-        </div>
-        <div className="-translate-x-1/2 -translate-y-1/2 [word-break:break-word] absolute flex flex-col font-heading font-normal h-[16.933px] justify-center leading-[0] left-[196.72px] text-[9.592px] text-black text-center top-[2976.03px] w-[171.693px]" data-node-id="70:506">
-          <p className="leading-[normal]">{photos.frontCap}</p>
-        </div>
-      </div>
-      <div className="absolute h-[17.816px] left-[18px] top-[2856px] w-[7.964px]" data-node-id="70:507">
+      <div className="absolute z-10 h-[17.816px] left-[18px] top-[2856px] w-[7.964px]" data-node-id="70:507">
         <div className="absolute inset-[-3.85%_-8.6%]">
           <img alt="" className="block max-w-none size-full" src="/mobile/arrow-left.svg" />
         </div>
       </div>
-      <div className="absolute h-[19.191px] left-[379px] top-[2843px] w-[6.51px]" data-node-id="70:508">
+      <div className="absolute z-10 h-[19.191px] left-[379px] top-[2843px] w-[6.51px]" data-node-id="70:508">
         <div className="absolute inset-[-3.57%_-10.52%_-3.57%_-10.53%]">
           <img alt="" className="block max-w-none size-full" src="/mobile/arrow-right.svg" />
         </div>
@@ -687,8 +641,8 @@ export function MobileHome() {
       <a href="/project/dartmouth-housing" aria-label="Dartmouth Housing Project" className="absolute left-[19px] top-[1273px] z-10 block h-[205px] w-[361px]" />
       <div data-cursor="ned" aria-label="Ned.ai" className="absolute left-[15px] top-[1497px] z-10 h-[230px] w-[380px]" />
       <a href="/project/sentry" aria-label="Sentry" className="absolute left-[62px] top-[1746px] z-10 block h-[410px] w-[266px]" />
-      <button type="button" aria-label="Show the previous photo" onClick={() => setFrame((frame) => (frame + 5) % 6)} className="absolute left-[8px] top-[2846px] z-10 h-[40px] w-[28px] bg-transparent" />
-      <button type="button" aria-label="Show the next photo" onClick={() => setFrame((frame) => (frame + 1) % 6)} className="absolute left-[368px] top-[2833px] z-10 h-[40px] w-[28px] bg-transparent" />
+      <button type="button" aria-label="Show the previous photo" onClick={() => setFrame((frame) => (frame + polaroidCount - 1) % polaroidCount)} className="absolute left-[8px] top-[2846px] z-10 h-[40px] w-[28px] bg-transparent" />
+      <button type="button" aria-label="Show the next photo" onClick={() => setFrame((frame) => (frame + 1) % polaroidCount)} className="absolute left-[368px] top-[2833px] z-10 h-[40px] w-[28px] bg-transparent" />
       <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" aria-label="Resume" className="absolute left-[57px] top-[3432px] z-10 block h-[180px] w-[120px]" />
       <a href="https://www.linkedin.com/in/gretchen-kerfoot-a52653272/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="absolute left-[218px] top-[3432px] z-10 block h-[140px] w-[140px]" />
       <a href="mailto:gretchen.a.kerfoot.27@dartmouth.edu" aria-label="Email" className="absolute left-[50px] top-[3650px] z-10 block h-[140px] w-[120px]" />
